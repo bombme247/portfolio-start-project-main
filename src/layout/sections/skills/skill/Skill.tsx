@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Icon } from "../../../../components/icon/Icon";
+import { theme } from "../../../../styles/Theme";
 
 type SkillPropsType = {
   iconId: string
@@ -17,14 +18,16 @@ export const Skill = (props: SkillPropsType) => {
 }
 
 const StyledSkill = styled.div`
-  width: 60px;
-  height: 50px;
-  background-color: aliceblue;
+  width: 310px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
 `
 
 const SkillTitle = styled.h3`
-  
+  text-transform: lowercase;
+  color: ${theme.colors.fontAccent};
 `

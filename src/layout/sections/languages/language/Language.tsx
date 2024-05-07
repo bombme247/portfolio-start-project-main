@@ -12,11 +12,11 @@ export const Language = (props: LanguagePropsType) => {
     <LanguageBar>
       <LanguageInfo>
         <LanguageTitle>{props.title}</LanguageTitle>
-        |
         <LanguageLevel>{props.level}</LanguageLevel>
       </LanguageInfo>
-
-      <ProgressLine><ProgressSpan progress={props.progress}></ProgressSpan></ProgressLine>
+      <ProgressLine>
+      {/* <ProgressSpan progress={props.progress}></ProgressSpan> */}
+      </ProgressLine>
     </LanguageBar>
   )
 }

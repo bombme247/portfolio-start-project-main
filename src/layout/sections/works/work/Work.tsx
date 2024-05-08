@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../styles/Theme";
+import { StyledWorkTitle } from "./StyledWorkTitle";
 
 
 type WorkPropsType = {
@@ -9,7 +11,10 @@ type WorkPropsType = {
 export const Work = (props: WorkPropsType) => {
   return (
     <StyledWork>
-      <WorkImage src={props.src} alt=""/>
+      <ImageWrapper>
+        <WorkImage src={props.src} alt=""/>
+        <StyledWorkTitle>View project</StyledWorkTitle>
+      </ImageWrapper>
     </StyledWork>
   )
 
@@ -17,8 +22,50 @@ export const Work = (props: WorkPropsType) => {
 
 const StyledWork = styled.div`
   width: 100%;
+  height: 334px;
+  border-radius: 5px;
+  overflow: hidden;
+  `
+
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 334px;
+  transition: all .7s ease;
+ 
+
+&:hover{
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffbd39;
+    opacity: 0.9;
+    transition: all .7s ease;
+  }
+
+  ${StyledWorkTitle} {
+  opacity: 1;
+  cursor: pointer;
+  }
+}
+
+${StyledWorkTitle} {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 `
 
 const WorkImage = styled.img`
   width: 100%;
+  border-radius: 5px;
+  height: 100%;
+  object-fit: cover;
 `

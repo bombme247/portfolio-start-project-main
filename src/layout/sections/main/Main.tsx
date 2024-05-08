@@ -40,7 +40,6 @@ const TitleWrapper = styled.div`
   width: 50%;
   min-height: 300px;
   gap: 15px;
-  /* border: 1px solid red; */
 `
 
 const Subheading = styled.span`

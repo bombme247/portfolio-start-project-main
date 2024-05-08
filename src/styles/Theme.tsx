@@ -8,5 +8,10 @@ export const theme = {
 
     font: "#999999",
     fontAccent: "#ffffff"
+  },
+
+  media: {
+    tablet: "screen and (max-width: 768px)",
+    mobile: "screen and (max-width: 576px)",
   }
 }

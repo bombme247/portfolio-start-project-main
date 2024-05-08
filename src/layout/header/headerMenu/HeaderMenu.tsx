@@ -22,6 +22,10 @@ const StyledHeaderMenu = styled.nav`
     gap: 20px;
     justify-content: flex-end;
   }
+
+  @media ${theme.media.tablet} {
+    display: none;
+  }
 `
 
 const ListItem = styled.li`

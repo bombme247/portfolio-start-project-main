@@ -5,6 +5,7 @@ import { FlexWrapper } from "../../components/FlexWrapper";
 import { Container } from "../../components/Container";
 import { HeaderMenu } from "./headerMenu/HeaderMenu";
 import { theme } from "../../styles/Theme";
+import { MobileMenu } from "./mobileMenu/MobileMenu";
 
 const items = ["Home", "Resume", "Skills","Works", "Languages", "Contact"]
 
@@ -16,6 +17,7 @@ export const Header = () => {
         <FlexWrapper>
           <Logo />
           <HeaderMenu menuItems={items}/>
+          <MobileMenu menuItems={items}/>
         </FlexWrapper>
       </Container>
 
@@ -34,4 +36,5 @@ const StyledHeader = styled.header`
   right: 0;
   z-index: 10;
   
+
 `

@@ -7,6 +7,7 @@ import { SectionBigTitle } from "../../../components/SectionBigTitle";
 import { Work } from "./work/Work";
 import coffee from "../../../assets/images/coffee.png"
 import player from "../../../assets/images/player.png"
+import { theme } from "../../../styles/Theme";
 
 
 export const Works = () => {
@@ -21,10 +22,10 @@ export const Works = () => {
           My Works
         </SectionBigTitle>
         </TitleWrapper>
-        <Grid>
+        <FlexWrapper justify="space-between" gap="30px" height="350px" wrap="wrap">
           <Work src={player}/>
           <Work src={coffee}/>
-        </Grid>
+        </FlexWrapper>
       </Container>
     </StyledWorks>
   )
@@ -32,16 +33,4 @@ export const Works = () => {
 
 const StyledWorks = styled.section`
   
-`
-
-const Grid = styled.div`
-width: 90%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
-  gap: 50px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". .";
-
 `

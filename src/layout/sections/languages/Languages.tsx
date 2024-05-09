@@ -22,9 +22,9 @@ export const Languages = () => {
           </SectionBigTitle>
         </TitleWrapper>
         <FlexWrapper direction="column">
-          <Language title={"Russian"} level={"native"} progress={"100%"} />
-          <Language title={"English"} level={"B2"} progress={"60%"} />
-          <Language title={"Korean"} level={"Topik 3"} progress={"40%"} />
+          <Language title={"Russian"} level={"native"} progress={100} />
+          <Language title={"English"} level={"B2"} progress={66} />
+          <Language title={"Korean"} level={"Topik 3"} progress={40} />
         </FlexWrapper>
       </Container>
 

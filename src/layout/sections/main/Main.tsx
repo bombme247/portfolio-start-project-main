@@ -4,15 +4,17 @@ import photo from "../../../assets/images/photo3.png";
 import styled from "styled-components";
 import { Container } from "../../../components/Container";
 import { theme } from "../../../styles/Theme";
+import { font } from "../../../styles/Common";
 
 export const Main = () => {
   return (
     <StyledMain>
+
       <Container>
         <FlexWrapper>
           <TitleWrapper>
             <Subheading>Hello!</Subheading>
-            <NameTitle>I am <Name>Nadia Park</Name></NameTitle>
+            <NameTitle>I am <span>Nadia Park</span></NameTitle>
             <MainTitle>A Front-end Developer based in South Korea</MainTitle>
           </TitleWrapper>
           <Photo src={photo} alt="" />
@@ -30,16 +32,20 @@ const StyledMain = styled.section`
 
 
 const Photo = styled.img`
-  width: 600px;
+  width: 500px;
+  flex-grow: 1;
   object-fit: cover;
 `
 
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  min-height: 300px;
   gap: 15px;
+  max-width: 450px;
+
+  @media ${theme.media.tablet} {
+    margin-bottom: 30px;
+  }
 `
 
 const Subheading = styled.span`
@@ -51,18 +57,14 @@ const Subheading = styled.span`
 `
 
 const NameTitle = styled.h2`
-  font-size: 60px;
-  color: ${theme.colors.fontAccent};
-  line-height: 1.2;
-  font-weight: 800;
-`
+  ${font({weight:800, lineHeight: 1.2, Fmax: 60, Fmin: 40} )};
 
-const Name = styled.span`
-  color: ${theme.colors.accent};
+  span {
+    color: ${theme.colors.accent};
+    white-space: nowrap;
+  }
 `
 
 const MainTitle = styled.h1`
-  font-size: 30px;
-  font-weight: 400;
-  color: ${theme.colors.fontAccent};
+  ${font({weight:400, Fmax: 30, Fmin: 20} )};
 `

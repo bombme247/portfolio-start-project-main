@@ -8,7 +8,7 @@ export const Slogan = () => {
   return (
     <StyledSlogan>
       <Container>
-      <SloganTitle>I'm <SloganTitleSpan>Available</SloganTitleSpan> for freelancing</SloganTitle>
+      <SloganTitle>I'm <span>Available</span> for freelancing</SloganTitle>
       <SloganSubtitle>
         Let's create together!
       </SloganSubtitle>
@@ -33,10 +33,11 @@ const SloganTitle = styled.h2`
   font-size: 40px;
   font-weight: 900;
   color: ${theme.colors.fontAccent};
-`
-
-const SloganTitleSpan = styled.span`
-  color: ${theme.colors.accent};
+  text-align: center;
+  
+  span {
+    color: ${theme.colors.accent};
+  }
 `
 
 const SloganSubtitle = styled.p`

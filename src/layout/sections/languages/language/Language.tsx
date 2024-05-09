@@ -5,7 +5,7 @@ import { theme } from "../../../../styles/Theme"
 type LanguagePropsType = {
   title: string
   level: string
-  progress: string
+  progress: number
 }
 
 export const Language = (props: LanguagePropsType) => {
@@ -16,13 +16,17 @@ export const Language = (props: LanguagePropsType) => {
         <LanguageLevel> ({props.level})</LanguageLevel>
       </LanguageInfo>
       <ProgressLine>
-        {/* <ProgressSpan></ProgressSpan> */}
+        <ProgressSpan progress={props.progress} />
       </ProgressLine>
     </LanguageBar>
   )
 }
 
 const LanguageBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
   &:not(:last-child) {
     margin-bottom: 40px;
   }
@@ -49,17 +53,18 @@ const LanguageLevel = styled.p`
 `
 
 const ProgressLine = styled.div`
+  width: 100%;
   height: 10px;
-  width: 600px;
   background-color: #1a1a1a;
   border-radius: 0.25rem;
   position: relative;
 `
 
-const ProgressSpan = styled.span<LanguagePropsType>`
+
+const ProgressSpan = styled.span<{progress: number}>`
   height: 100%;
   border-radius: 0.25rem;
-  background-color: aliceblue;
+  background-color: ${theme.colors.accent};
   position: absolute;
-  width: ${props => props.progress};
+  width: ${props => props.progress}%;
 `

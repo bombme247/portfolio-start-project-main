@@ -44,5 +44,5 @@ const StyledResume = styled.section`
 
 
 const ResumeText = styled.p`
-  
+  text-align: center;
 `

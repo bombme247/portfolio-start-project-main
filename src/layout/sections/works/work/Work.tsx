@@ -21,8 +21,7 @@ export const Work = (props: WorkPropsType) => {
 }
 
 const StyledWork = styled.div`
-  width: 100%;
-  height: 334px;
+  height: 100%;
   border-radius: 5px;
   overflow: hidden;
   `
@@ -30,7 +29,7 @@ const StyledWork = styled.div`
 const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 334px;
+  height: 100%;
   transition: all .7s ease;
  
 

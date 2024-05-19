@@ -10,7 +10,7 @@ import { SectionBigTitle } from "../../../components/SectionBigTitle";
 
 export const Languages = () => {
   return (
-    <StyledLanguages>
+    <StyledLanguages id={"languages"}>
 
       <Container>
         <TitleWrapper>

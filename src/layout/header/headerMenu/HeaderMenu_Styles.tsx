@@ -1,34 +1,48 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../../styles/Theme";
+import { Link } from "react-scroll";
 
-export const MobileMenu = (props: { menuItems: Array<string> }) => {
-  return (
-    <StyledMobileMenu>
+// ---- Menu ---- 
 
-      <BurgerButton isOpen={false}>
-        <span></span>
-      </BurgerButton>
+const MenuItem = styled.li`
+  
+`
 
-      <MobileMenuPopup isOpen={false}>
-        <ul>
-          {props.menuItems.map((item: string, index: number) => {
-            return <ListItem key={index}>
-              <Link href="">{item}</Link>
-            </ListItem>
-          })}
-        </ul>
-      </MobileMenuPopup>
-    </StyledMobileMenu>
-  );
-};
+const NavLink = styled(Link)`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${theme.colors.fontAccent};
+  padding-top: .2rem;
+  padding-bottom: .2rem;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
 
-const StyledMobileMenu = styled.nav`
-  display: none;
-
-  @media ${theme.media.tablet} {
-    display: block;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background-color: ${theme.colors.accent};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scale(0);
+    transition: .7s;
   }
+
+  &:hover, &.active {
+    color: ${theme.colors.accent};
+    &:after {
+      transform: scale(1);
+    }
+  }
+`
+
+// ---- Mobile menu ---- 
+
+const MobileMenu = styled.nav`
+
 `
 
 const MobileMenuPopup = styled.div<{isOpen: boolean}>`
@@ -63,6 +77,8 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
   width: 200px;
   height: 200px;
   z-index: 10;
+  cursor: pointer;
+  
 
   span {
     display: block;
@@ -72,6 +88,7 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
     position: absolute;
     left: 40px;
     bottom: 50px;
+    transition: all .5s ease-in-out;
 
     ${props => props.isOpen && css<{isOpen: boolean}>`
     background-color: rgba(255, 255, 255, 0);
@@ -85,9 +102,11 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
       position: absolute;
       width: 36px;
       transform: translateY(-10px);
+      transition: all .5s ease-in-out;
 
       ${props => props.isOpen && css<{isOpen: boolean}>`
       transform: rotate(-45deg) translateY(0);
+      transition: all .5s ease-in-out;
       `}
     }
 
@@ -99,46 +118,31 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
       position: absolute;
       width: 36px;
       transform: translateY(10px);
+      transition: all .5s ease-in-out;
 
       ${props => props.isOpen && css<{isOpen: boolean}>`
       transform: rotate(45deg) translateY(0);
+      transition: all .5s ease-in-out;
       `}
     }
   }
 `
 
-const ListItem = styled.li`
-  
+// ---- Desktop menu ---- 
+
+const DesktopMenu = styled.nav`
+  ul {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+  }
 `
 
-const Link = styled.a`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${theme.colors.fontAccent};
-  padding-top: .2rem;
-  padding-bottom: .2rem;
-  text-align: center;
-  position: relative;
-
-  &:hover {
-    color: ${theme.colors.accent};
-  }
-
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 2px;
-    background-color: ${theme.colors.accent};
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scale(0);
-    transition: .7s;
-  }
-
-  &:hover::after {
-      transform: scale(1);
-    }
-  
-`
+export const S = {
+  NavLink, 
+  MenuItem,
+  MobileMenu,
+  MobileMenuPopup,
+  BurgerButton,
+  DesktopMenu
+}

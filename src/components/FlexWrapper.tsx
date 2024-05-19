@@ -9,7 +9,6 @@ type FlexWrapperPropsType = {
   width?: string
   wrap?: string
   gap?: string
-  height?: string
 }
 
 export const FlexWrapper = styled.div<FlexWrapperPropsType>`
@@ -19,7 +18,6 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   align-items: ${props => props.align || "center"};
   width: ${props => props.width || "100%"};
   flex-wrap: ${props => props.wrap || "no-wrap"};
-  height: ${props => props.height || "100%"} ;
   gap: ${props => props.gap};
 
   @media ${theme.media.tablet} {

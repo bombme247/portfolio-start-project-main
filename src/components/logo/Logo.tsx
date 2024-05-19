@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { theme } from "../../styles/Theme"
+import styled from "styled-components";
+import { theme } from "../../styles/Theme";
+import { animateScroll as scroll} from "react-scroll";
 
-export const Logo = () => {
+export const Logo: React.FC = () => {
   return (
-    <StyledLogo href="">
+    <StyledLogo onClick={() => {scroll.scrollToTop()}}>
       nadia
     </StyledLogo>
   )
@@ -13,6 +13,6 @@ export const Logo = () => {
 const StyledLogo = styled.a`
     font-weight: 900;
     font-size: 24px;
-    /* text-transform: uppercase; */
     color: ${theme.colors.fontAccent};
+    cursor: pointer;
 `

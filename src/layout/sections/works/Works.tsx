@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Container } from "../../../components/Container";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import { SectionTitle } from "../../../components/SectionTitle";
@@ -7,12 +6,21 @@ import { SectionBigTitle } from "../../../components/SectionBigTitle";
 import { Work } from "./work/Work";
 import coffee from "../../../assets/images/coffee.png"
 import player from "../../../assets/images/player.png"
-import { theme } from "../../../styles/Theme";
+import React from "react";
+import { S } from "./Works_Styles";
 
+const workData = [
+  {
+    src: player
+  },
+  {
+    src: coffee
+  }
+]
 
-export const Works = () => {
+export const Works: React.FC = () => {
   return (
-    <StyledWorks>
+    <S.Works id={"works"}>
       <Container>
       <TitleWrapper>
         <SectionTitle>
@@ -22,15 +30,12 @@ export const Works = () => {
           My Works
         </SectionBigTitle>
         </TitleWrapper>
-        <FlexWrapper justify="space-between" gap="30px" height="350px" wrap="wrap">
-          <Work src={player}/>
-          <Work src={coffee}/>
+        <FlexWrapper justify="space-between" gap="30px">
+          {workData.map( (work, index) => {
+            return <Work src={work.src} key={index}/>
+          })}
         </FlexWrapper>
       </Container>
-    </StyledWorks>
+    </S.Works>
   )
 }
-
-const StyledWorks = styled.section`
-  
-`

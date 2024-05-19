@@ -8,7 +8,7 @@ import { TitleWrapper } from "../../../components/TitleWrapper";
 
 export const Resume = () => {
   return (
-    <StyledResume>
+    <StyledResume id={"resume"}>
 
       <Container>
         <TitleWrapper>

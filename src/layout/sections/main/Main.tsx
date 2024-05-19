@@ -1,70 +1,33 @@
 import React from "react";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import photo from "../../../assets/images/photo3.png";
-import styled from "styled-components";
 import { Container } from "../../../components/Container";
-import { theme } from "../../../styles/Theme";
-import { font } from "../../../styles/Common";
+import { S } from "./Main_Styles";
+import Typewriter from 'typewriter-effect';
 
-export const Main = () => {
+
+export const Main: React.FC = () => {
   return (
-    <StyledMain>
-
+    <S.Main id={"home"}>
       <Container>
         <FlexWrapper>
-          <TitleWrapper>
-            <Subheading>Hello!</Subheading>
-            <NameTitle>I am <span>Nadia Park</span></NameTitle>
-            <MainTitle>A Front-end Developer based in South Korea</MainTitle>
-          </TitleWrapper>
-          <Photo src={photo} alt="" />
+          <S.TitleWrapper>
+            <S.Subheading>Hello!</S.Subheading>
+            <S.NameTitle>I am <span>Nadia Park</span></S.NameTitle>
+            <S.MainTitle>
+              <p>A Front-end Developer based in South Korea</p>
+              <Typewriter
+                options={{
+                  strings: ['A Front-end Developer based in South Korea'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </S.MainTitle>
+          </S.TitleWrapper>
+          <S.Photo src={photo} alt="" />
         </FlexWrapper>
       </Container>
-
-    </StyledMain>
+    </S.Main>
   )
 }
-
-const StyledMain = styled.section`
-  display: flex;
-  min-height: 100vh;
-`
-
-
-const Photo = styled.img`
-  width: 500px;
-  flex-grow: 1;
-  object-fit: cover;
-`
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 450px;
-
-  @media ${theme.media.tablet} {
-    margin-bottom: 30px;
-  }
-`
-
-const Subheading = styled.span`
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: ${theme.colors.accent};
-`
-
-const NameTitle = styled.h2`
-  ${font({weight:800, lineHeight: 1.2, Fmax: 60, Fmin: 40} )};
-
-  span {
-    color: ${theme.colors.accent};
-    white-space: nowrap;
-  }
-`
-
-const MainTitle = styled.h1`
-  ${font({weight:400, Fmax: 30, Fmin: 20} )};
-`
